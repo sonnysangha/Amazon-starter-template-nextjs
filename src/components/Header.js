@@ -12,6 +12,9 @@ function Header() {
             className="cursor-pointer"
           />
         </div>
+        <div>
+          <input type="text" />
+        </div>
       </div>
       <div></div>
     </header>
