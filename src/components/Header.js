@@ -24,6 +24,20 @@ function Header() {
           />
           <SearchIcon className="h-12 p-4" />
         </div>
+        <div className="text-white flex items-center text-xs space-x-6 #x-6 whitespace-nowrap">
+          <div className="link">
+            <p>Hello Sonny Sangha</p>
+            <p>Account & Lists</p>
+          </div>
+          <div className="link">
+            <p>Returns</p>
+            <p>&Orders</p>
+          </div>
+          <div className="link">
+            <ShoppingCartIcon className="h-10" />
+            <p>Basket</p>
+          </div>
+        </div>
       </div>
       <div></div>
     </header>
