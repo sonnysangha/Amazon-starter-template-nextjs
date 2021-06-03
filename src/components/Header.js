@@ -26,7 +26,7 @@ function Header() {
         </div>
         <div className="text-white flex items-center text-xs space-x-6 #x-6 whitespace-nowrap">
           <div className="link">
-            <p>Hello Sonny Sangha</p>
+            <p>Hello Mohamed Mehdi Gara</p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
           <div className="link">
