@@ -1,13 +1,21 @@
 import React from 'react'
 import Image from "next/image"
-import { MenuAlt1Icon, MenuIcon, SearchCircleIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline"
+import { MeniuAlt1Icon, MenuIcon, SearchCircleIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline"
+import {signIn,signOut,Session} from "next-auth/client"
+import { useRouter } from 'next/dist/client/router'
+import { useSelector } from 'react-redux'
+import { selectItems } from '../slices/basketSlice'
 function Header() {
+    const Router = useRouter()
+    const items = useSelector(selectItems)
     return (
         <header>
             <div className=" flex items-center bg-amazon_blue  flex-grow p-1 py-2 " >
                 <div className=" mt-2 flex items-center sm:flex-grow-0 " >
                     <Image src="https://links.papareact.com/f90"
-                        width={150}
+                     
+                     onClick={()=>Router.push("/")}
+                     width={150}
                         height={40}
                         objectFit="contain"
                         className="cursor-pointer" />
@@ -20,7 +28,7 @@ function Header() {
                     <SearchIcon className=" h-12 p-4 " />
                 </div>
                 <div className="  flex items-center text-xs space-x-6 text-white px-6 whitespace-nowrap  " >
-                    <div className="  link " >
+                    <div onClick={signIn} className="  link " >
                         <p>Hello Atul Yadav</p>
                         <p className=" font-extrabold md:text-sm" > Account & Lists</p>
                     </div>
@@ -28,10 +36,10 @@ function Header() {
                         <p>Returns</p>
                         <p className=" font-extrabold md:text-sm" >&Orders</p>
                     </div>
-                    <div className="   flex items-center relative" >
+                    <div onClick={()=>Router.push("/checkout")} className="  cursor-pointer  flex items-center relative" >
                         {/* absolute without parent Relative will be absolute to the screen */}
                         <span className=" absolute top-0 right-0 md:right-10 h-4 w-4
-                           bg-yellow-400  text-center rounded-full  font-bold " >0</span>
+                           bg-yellow-400  text-center rounded-full  font-bold " >{items.length}</span>
                         <ShoppingCartIcon className=" h-10 " />
                         <p className=" font-extrabold md:text-sm hidden md:inline mt-2 " >Basket</p>
                     </div>
