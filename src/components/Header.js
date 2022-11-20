@@ -6,9 +6,11 @@ import {
 	Bars3Icon,
 } from "@heroicons/react/24/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 function Header() {
 	const { data: session } = useSession();
+	const router = useRouter();
 
 	return (
 		<header>
@@ -16,6 +18,7 @@ function Header() {
 			<div className='flex items-center flex-grow p-1 py-2 bg-amazon_blue'>
 				<div className='flex items-center flex-grow mt-2 sm:flex-grow-0'>
 					<Image
+						onClick={() => router.push("/")}
 						src='https://links.papareact.com/f90'
 						width={150}
 						height={40}
@@ -47,7 +50,10 @@ function Header() {
 						<p className='font-extrabold md:text-sm'>& Orders</p>
 					</div>
 
-					<div className='relative flex items-center link'>
+					<div
+						className='relative flex items-center link'
+						onClick={() => router.push("/checkout")}
+					>
 						<span className='absolute top-0 right-0 w-4 h-4 font-bold text-center text-black bg-yellow-400 rounded-full md:right-10'>
 							0
 						</span>
